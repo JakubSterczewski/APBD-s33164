@@ -4,21 +4,33 @@ public class InputValidator
 {
     public static void Main(string[] args)
     {
-        ArrayList enteredNumbers = new ArrayList();
+        List<int> enteredNumbers = new List<int>();
         int enteredNumber = 0;
         while (enteredNumber >= 0)
         {
             enteredNumber = GetNumberFromUser();
             if (enteredNumber >= 0)
             {
-                Console.Write("Entered value: " + enteredNumber + "\n");
+                Console.WriteLine("Entered value: " + enteredNumber);
                 enteredNumbers.Add(enteredNumber);
             }
             else
             {
-                Console.Write("Quit");
+                Console.WriteLine("Quit");
             }
         }
+        
+        Console.WriteLine("Average: " + CalculateAverage(enteredNumbers));
+    }
+
+    public static int CalculateAverage(List<int> values)
+    {
+        int sum = 0;
+        foreach (var i in values)
+        {
+            sum += i;
+        }
+        return sum/values.Count;
     }
 
     public static int GetNumberFromUser()
