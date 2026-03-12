@@ -16,7 +16,12 @@
             try
             {
                 int enteredNumber = int.Parse(input);
-                return enteredNumber;
+                if (enteredNumber >= 0)
+                {
+                    return enteredNumber;
+                }
+
+                Console.WriteLine("Number cannot be negative");
             }
             catch (Exception e)
             {
