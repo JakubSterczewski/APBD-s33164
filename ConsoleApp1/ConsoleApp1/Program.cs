@@ -28,6 +28,12 @@ public class InputValidator
         int max = numbers.Max();
         return max;
     }
+    
+    public static int CalculateMin(List<int> numbers)
+    {
+        int min = numbers.Min();
+        return min;
+    }
 
     public static int CalculateAverage(List<int> values)
     {
