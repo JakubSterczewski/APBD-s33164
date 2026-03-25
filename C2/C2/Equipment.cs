@@ -2,9 +2,10 @@ namespace C2;
 
 public class Equipment
 {
-    private int Id {get;}
-    private string Producer { get; set; }
-    private string Name { get; set; }
+    public int Id {get;}
+    public string Producer { get; set; }
+    public string Name { get; set; }
+    public bool IsAvailable { get; set; } = true;
     
     public Equipment(string producer, string name)
     {

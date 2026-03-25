@@ -2,23 +2,22 @@ namespace C2;
 
 public class Rental
 {
-    private User User {get;set;}
-    private Equipment Qquipment {get;set;}
+    public User User {get;set;}
+    public Equipment Equipment {get;set;}
     private DateTime RentDate {get;set;}
-    private DateTime DueDate {get;set;}
-    private DateTime? ReturnDate {get;set;}
+    public DateTime DueDate {get;set;}
+    public DateTime? ReturnDate {get;set;}
 
     public bool IsReturned()
     {
         return ReturnDate != null;
     }
 
-    public Rental(User user, Equipment qquipment, DateTime rentDate, DateTime dueDate, DateTime? returnDate)
+    public Rental(User user, Equipment equipment, DateTime rentDate, DateTime dueDate)
     {
         User = user;
-        Qquipment = qquipment;
+        Equipment = equipment;
         RentDate = rentDate;
         DueDate = dueDate;
-        ReturnDate = returnDate;
     }
 }
