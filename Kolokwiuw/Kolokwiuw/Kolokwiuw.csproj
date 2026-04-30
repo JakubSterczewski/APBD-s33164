@@ -9,14 +9,13 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.6"/>
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.1.7" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.1"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.1.7"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-      <Folder Include="DTOs\" />
-      <Folder Include="Exceptions\" />
-      <Folder Include="Services\" />
+      <_ContentIncludedByDefault Remove="NewDirectory1\GET.json" />
+      <_ContentIncludedByDefault Remove="NewDirectory1\POST.json" />
     </ItemGroup>
 
 </Project>
