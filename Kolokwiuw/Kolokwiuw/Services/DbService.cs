@@ -79,11 +79,11 @@ public class DbService : IDbService
     {
         var addVendorSql = "INSERT INTO Vendors VALUES (@Code, @Name)";
         var addProductsSql = "INSERT INTO VendorProducts VALUES (@ProductId, @code, @amout, @pricePerUnit);\n";
-        
+
         await using var connection = new SqlConnection(_connectionString);
         await connection.OpenAsync();
         await using var transaction = connection.BeginTransaction();
-        
+
         await using var command = new SqlCommand();
         command.Connection = connection;
         command.Transaction = transaction;
@@ -94,24 +94,24 @@ public class DbService : IDbService
             command.Parameters.AddWithValue("@name", dto.name);
             await command.ExecuteNonQueryAsync();
 
-            foreach (var product in dto.products)
-            {
-                try
-                {
-                    var InsertProductsCommand = new SqlCommand(addProductsSql, connection);
-                    InsertProductsCommand.Transaction = transaction;
-                    InsertProductsCommand.Parameters.AddWithValue("@ProductId", product.id);
-                    InsertProductsCommand.Parameters.AddWithValue("@code", dto.code);
-                    InsertProductsCommand.Parameters.AddWithValue("@amout", product.amount);
-                    InsertProductsCommand.Parameters.AddWithValue("@pricePerUnit", product.pricePerUnit);
-                    await InsertProductsCommand.ExecuteNonQueryAsync();
-                }
-                catch (Exception e)
-                {
-                    transaction.Rollback();
-                    throw new NotFoundException("Product not found");
-                }
-            }
+            if (dto.products.Count > 0)
+                foreach (var product in dto.products)
+                    try
+                    {
+                        var InsertProductsCommand = new SqlCommand(addProductsSql, connection);
+                        InsertProductsCommand.Transaction = transaction;
+                        InsertProductsCommand.Parameters.AddWithValue("@ProductId", product.id);
+                        InsertProductsCommand.Parameters.AddWithValue("@code", dto.code);
+                        InsertProductsCommand.Parameters.AddWithValue("@amout", product.amount);
+                        InsertProductsCommand.Parameters.AddWithValue("@pricePerUnit", product.pricePerUnit);
+                        await InsertProductsCommand.ExecuteNonQueryAsync();
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        throw new NotFoundException("Product not found");
+                    }
+
             transaction.Commit();
         }
         catch (Exception e)
