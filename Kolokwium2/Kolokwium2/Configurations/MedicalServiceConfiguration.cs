@@ -15,5 +15,10 @@ public class MedicalServiceConfiguration : IEntityTypeConfiguration<MedicalServi
         builder.Property(ms => ms.Price).HasColumnType("decimal(10,2)");
 
         builder.ToTable("Medical_Services");
+        
+        builder.HasData(new List<MedicalService>
+        {
+            new MedicalService() {ServiceId = 1, Name = "nazwa",  Description = "nazwa", Price = 100, DurationMinutes = 90},
+        });
     }
 }

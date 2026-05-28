@@ -16,5 +16,10 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
         builder.Property(a => a.Phone).HasMaxLength(9);
 
         builder.ToTable("Doctors");
+        
+        builder.HasData(new List<Doctor>
+        {
+            new Doctor() {DoctorId = 1, FirstName = "John", LastName = "Doe"},
+        });
     }
 }

@@ -17,9 +17,9 @@ public class PatientConfiguration : IEntityTypeConfiguration<Patient>
 
         builder.ToTable("Patients");
 
-        // builder.HasData(new List<Patient>
-        // {
-        //     new()()
-        // });
+        builder.HasData(new List<Patient>
+        {
+            new Patient() {PatientId = 1, FirstName =  "John", LastName = "Doe", DateOfBirth = new DateTime(1990, 1, 1)},
+        });
     }
 }

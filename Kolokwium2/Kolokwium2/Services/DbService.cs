@@ -18,7 +18,7 @@ public class DbService : IDbService
     public async Task<List<GetPatientsDto>> GetPatientsAsync(string? lastName)
     {
         var res = await _context.Patients
-            // .Where(p => p.LastName == "%" + lastName)
+            .Where(p => p.LastName == "%" + lastName)
             .Select(p => new GetPatientsDto
         {
             FirstName = p.FirstName,

@@ -23,5 +23,10 @@ public class AppointmentConfiguration : IEntityTypeConfiguration<Appointment>
         builder.Property(a => a.Status).HasMaxLength(50);
 
         builder.ToTable("Appointments");
+        
+        // builder.HasData(new List<Appointment>
+        // {
+        //     new Appointment() {},
+        // });
     }
 }
