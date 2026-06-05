@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System Uznawania Przychodów", "System Uznawania Przychodów\System Uznawania Przychodów.csproj", "{40B1459A-ABC1-44B2-91CE-786389CE9EC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40B1459A-ABC1-44B2-91CE-786389CE9EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B1459A-ABC1-44B2-91CE-786389CE9EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40B1459A-ABC1-44B2-91CE-786389CE9EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40B1459A-ABC1-44B2-91CE-786389CE9EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
